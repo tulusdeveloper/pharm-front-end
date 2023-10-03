@@ -9,10 +9,11 @@ class AuthHandler{
 			if(response.status===200){
 				reactLocalStorage.set("token",response.data.access);
 				reactLocalStorage.set("refresh",response.data.refresh);
+				callback("Login Seccessful...");
 			}
 		})
 		.catch(function(error){
-			console.log(error.response);
+			callback("Error During Login Invalid Login Details...");
 		})
 	}
 }
