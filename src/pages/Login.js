@@ -3,6 +3,7 @@ import 'adminbsb-materialdesign/plugins/bootstrap/css/bootstrap.css';
 import 'adminbsb-materialdesign/css/style.css';
 import 'adminbsb-materialdesign/plugins/node-waves/waves.css';
 import 'adminbsb-materialdesign/plugins/animate-css/animate.css';
+import AuthHandler from "../utils/AuthHandler";
 
 class Login extends React.Component {
 
@@ -15,7 +16,7 @@ class Login extends React.Component {
     saveInputs=(event)=>{
         var key=event.target.name;
         this.setState({[key]:event.target.value});
-        if(this.state.username!="" && this.state.password!=""){
+        if(this.state.username!=="" && this.state.password!==""){
             this.setState({ btnDisabled: false });
         } else {
             this.setState({ btnDisabled: true });
@@ -25,6 +26,11 @@ class Login extends React.Component {
     formSubmit=(event)=>{
         event.preventDefault();
         console.log(this.state);
+        AuthHandler.login(this.state.username,this.state.password);
+    }
+
+    handleAjaxResponse=(data)=>{
+        console.log(data);
     }
 
     render() {
