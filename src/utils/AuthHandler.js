@@ -9,7 +9,7 @@ class AuthHandler{
 			if(response.status===200){
 				reactLocalStorage.set("token",response.data.access);
 				reactLocalStorage.set("refresh",response.data.refresh);
-				callback({error:false,message:"Login Seccessful..."});
+				callback({error:false,message:"Login Seccessfull..."});
 			}
 		})
 		.catch(function(error){
