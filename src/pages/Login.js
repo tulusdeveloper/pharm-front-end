@@ -11,6 +11,7 @@ class Login extends React.Component {
         username:"",
         password:"",
         btnDisabled: true,
+        loginStatus:0,
     }
 
     saveInputs=(event)=>{
@@ -26,11 +27,39 @@ class Login extends React.Component {
     formSubmit=(event)=>{
         event.preventDefault();
         console.log(this.state);
+        this.setState({loginStatus:1});
         AuthHandler.login(this.state.username,this.state.password,this.handleAjaxResponse);
     }
 
     handleAjaxResponse=(data)=>{
         console.log(data);
+        if(data.error){
+            this.setState({loginStatus:4});
+        }
+        else{
+            this.setState({loginStatus:3});
+        }
+    }
+
+    getMessages=()=>{
+        if(this.state.loginStatus===0){
+            return "";
+        }
+        else if(this.state.loginStatus===1){
+            return <div class="alert alert-warning">
+                                <strong>Login!</strong> Please Wait...
+                    </div>;
+        }
+        else if(this.state.loginStatus===3){
+            return <div class="alert alert-success">
+                                <strong>Login Successfull!</strong>
+                    </div>;
+        }
+        else if(this.state.loginStatus===4){
+            return <div class="alert alert-danger">
+                                <strong>Invalid Login Details!</strong>
+                    </div>;
+        }
     }
 
     render() {
@@ -78,6 +107,7 @@ class Login extends React.Component {
                                     <button className="btn btn-link">Forgot Password</button>
                                 </div>
                             </div>
+                            {this.getMessages()}
                         </form>
                     </div>
                 </div>
