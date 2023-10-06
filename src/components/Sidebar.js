@@ -4,43 +4,43 @@ class Sidebar extends React.Component {
   render() {
     return <section>
 
-    <aside id="leftsidebar" class="sidebar">
+    <aside id="leftsidebar" className="sidebar">
 
-        <div class="user-info">
-            <div class="image">
+        <div className="user-info">
+            <div className="image">
                 <img src={{}} width="48" height="48" alt="User" />
             </div>
-            <div class="info-container">
-                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tulus Vincent</div>
-                <div class="email">vincent@tulusdev.xyz</div>
-                <div class="btn-group user-helper-dropdown">
-                    <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
-                    <ul class="dropdown-menu pull-right">
+            <div className="info-container">
+                <div className="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tulus Vincent</div>
+                <div className="email">vincent@tulusdev.xyz</div>
+                <div className="btn-group user-helper-dropdown">
+                    <i className="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                    <ul className="dropdown-menu pull-right">
 
-                        <li><a href="#" class=" waves-effect waves-block"><i class="material-icons">input</i>Sign Out</a></li>
+                        <li><a href="#" className=" waves-effect waves-block"><i className="material-icons">input</i>Sign Out</a></li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <div class="menu">
-            <div class="slimScrollDiv" style={{ position: 'relative', overflow: 'hidden', width: 'auto', height: '489px' }}><ul class="list" style={{overflow: 'hidden', width: 'auto', height: '489px' }}>
+        <div className="menu">
+            <div className="slimScrollDiv" style={{ position: 'relative', overflow: 'hidden', width: 'auto', height: '489px' }}><ul className="list" style={{overflow: 'hidden', width: 'auto', height: '489px' }}>
                 
-                <li class="active">
-                    <a href="#" class="toggled waves-effect waves-block">
-                        <i class="material-icons">home</i>
+                <li className="active">
+                    <a href="#" className="toggled waves-effect waves-block">
+                        <i className="material-icons">home</i>
                         <span>Home</span>
                     </a>
                 </li>
     
-            </ul><div class="slimScrollBar" style={{ background: 'rgba(0, 0, 0, 0.5)', width:'4px', position: 'absolute', top: '0px', opacity: '0.4', display: 'block', borderRadius: '0px', zIndex: '99', right: '1px', height: '257.119px' }}></div><div class="slimScrollRail" style={{ width: '4px', height: '100%', position: 'absolute', top: '0px', display: 'none', borderRadius: '0px', background: 'rgb(51, 51, 51)', opacity: '0.2', zIndex: '90', right: '1px' }}></div></div>
+            </ul><div className="slimScrollBar" style={{ background: 'rgba(0, 0, 0, 0.5)', width:'4px', position: 'absolute', top: '0px', opacity: '0.4', display: 'block', borderRadius: '0px', zIndex: '99', right: '1px', height: '257.119px' }}></div><div className="slimScrollRail" style={{ width: '4px', height: '100%', position: 'absolute', top: '0px', display: 'none', borderRadius: '0px', background: 'rgb(51, 51, 51)', opacity: '0.2', zIndex: '90', right: '1px' }}></div></div>
         </div>
 
-        <div class="legal">
-            <div class="copyright">
+        <div className="legal">
+            <div className="copyright">
                 © 2023 - 2027 <a href="#">tulusdev.xyz</a>.
             </div>
-            <div class="version">
+            <div className="version">
                 <b>Version: </b> 1.0.0
             </div>
         </div>
