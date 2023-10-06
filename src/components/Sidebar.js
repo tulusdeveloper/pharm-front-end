@@ -6,7 +6,7 @@ class Sidebar extends React.Component {
       <section>
          <aside id="leftsidebar" className="sidebar">
           <div className="user-info">
-            <h1>Hello</h1>
+            <h1>Sidebar</h1>
           </div>
           
         </aside>
