@@ -1,4 +1,5 @@
 import React from "react";
+import { Navigate } from 'react-router-dom';
 import 'adminbsb-materialdesign/plugins/bootstrap/css/bootstrap.css';
 import 'adminbsb-materialdesign/css/style.css';
 import 'adminbsb-materialdesign/plugins/node-waves/waves.css';
@@ -65,6 +66,11 @@ class Login extends React.Component {
     }
 
     render() {
+
+        if(AuthHandler.loggedIn()){
+            return <Navigate to={Config.homeUrl} />;
+        }
+
         document.body.className = "login-page"
         return (
             <div className="login-box">
