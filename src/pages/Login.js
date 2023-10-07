@@ -4,66 +4,68 @@ import 'adminbsb-materialdesign/css/style.css';
 import 'adminbsb-materialdesign/plugins/node-waves/waves.css';
 import 'adminbsb-materialdesign/plugins/animate-css/animate.css';
 import AuthHandler from "../utils/AuthHandler";
+import Config from "../utils/Config";
 
 class Login extends React.Component {
 
-    state={
-        username:"",
-        password:"",
+    state = {
+        username: "",
+        password: "",
         btnDisabled: true,
-        loginStatus:0,
+        loginStatus: 0,
     }
 
-    saveInputs=(event)=>{
-        var key=event.target.name;
-        this.setState({[key]:event.target.value});
-        if(this.state.username!=="" && this.state.password!==""){
+    saveInputs = (event) => {
+        var key = event.target.name;
+        this.setState({ [key]: event.target.value });
+        if (this.state.username !== "" && this.state.password !== "") {
             this.setState({ btnDisabled: false });
         } else {
             this.setState({ btnDisabled: true });
         }
     }
 
-    formSubmit=(event)=>{
+    formSubmit = (event) => {
         event.preventDefault();
         console.log(this.state);
-        this.setState({loginStatus:1});
-        AuthHandler.login(this.state.username,this.state.password,this.handleAjaxResponse);
+        this.setState({ loginStatus: 1 });
+        AuthHandler.login(this.state.username, this.state.password, this.handleAjaxResponse);
     }
 
-    handleAjaxResponse=(data)=>{
+    handleAjaxResponse = (data) => {
         console.log(data);
-        if(data.error){
-            this.setState({loginStatus:4});
+        if (data.error) {
+            this.setState({ loginStatus: 4 });
         }
-        else{
-            this.setState({loginStatus:3});
+        else {
+            this.setState({ loginStatus: 3 });
+            window.location = Config.homeUrl;
         }
     }
 
-    getMessages=()=>{
-        if(this.state.loginStatus===0){
+    getMessages = () => {
+        if (this.state.loginStatus === 0) {
             return "";
         }
-        else if(this.state.loginStatus===1){
+        else if (this.state.loginStatus === 1) {
             return <div class="alert alert-warning">
-                                <strong>Login!</strong> Please Wait...
-                    </div>;
+                <strong>Login!</strong> Please Wait...
+            </div>;
         }
-        else if(this.state.loginStatus===3){
+        else if (this.state.loginStatus === 3) {
             return <div class="alert alert-success">
-                                <strong>Login Successfull!</strong>
-                    </div>;
+                <strong>Login Successfull!</strong>
+            </div>;
         }
-        else if(this.state.loginStatus===4){
+        else if (this.state.loginStatus === 4) {
             return <div class="alert alert-danger">
-                                <strong>Invalid Login Details!</strong>
-                    </div>;
+                <strong>Invalid Login Details!</strong>
+            </div>;
         }
     }
 
     render() {
-        document.body.className="login-page"
+        document.body.className = "login-page"
         return (
             <div className="login-box">
                 <div className="logo">
@@ -79,7 +81,7 @@ class Login extends React.Component {
                                     <i className="material-icons">person</i>
                                 </span>
                                 <div className="form-line">
-                                    <input type="text" className="form-control" name="username" placeholder="Username" required autoFocus onChange={this.saveInputs}/>
+                                    <input type="text" className="form-control" name="username" placeholder="Username" required autoFocus onChange={this.saveInputs} />
                                 </div>
                             </div>
                             <div className="input-group">
@@ -87,12 +89,12 @@ class Login extends React.Component {
                                     <i className="material-icons">lock</i>
                                 </span>
                                 <div className="form-line">
-                                    <input type="password" className="form-control" name="password" placeholder="Password" required onChange={this.saveInputs}/>
+                                    <input type="password" className="form-control" name="password" placeholder="Password" required onChange={this.saveInputs} />
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col-xs-8 p-t-5">
-                                    <input type="checkbox" name="rememberme" id="rememberme" className="filled-in chk-col-pink" onChange={this.saveInputs}/>
+                                    <input type="checkbox" name="rememberme" id="rememberme" className="filled-in chk-col-pink" onChange={this.saveInputs} />
                                     <label htmlFor="rememberme">Remember Me</label>
                                 </div>
                                 <div className="col-xs-4">
