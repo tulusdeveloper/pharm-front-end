@@ -2,6 +2,19 @@ import React from 'react';
 import usericon from 'adminbsb-materialdesign/images/user.png';
 
 class Sidebar extends React.Component {
+
+  state={
+    defaultClass: "btn-group user-helper-dropdown",
+  }
+  showLogoutMenu=()=>{
+    if(this.state.defaultClass=="btn-group user-helper-dropdown"){
+      this.setState({defaultClass:"btn-group user-helper-dropdown open"});
+    }
+    else{
+      this.setState({defaultClass:"btn-group user-helper-dropdown"});
+    }
+  }
+
   render() {
     return <section>
 
@@ -14,8 +27,8 @@ class Sidebar extends React.Component {
             <div className="info-container">
                 <div className="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tulus Vincent</div>
                 <div className="email">vincent@tulusdev.xyz</div>
-                <div className="btn-group user-helper-dropdown">
-                    <i className="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                <div className={this.state.defaultClass}>
+                    <i className="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" onClick={this.showLogoutMenu}>keyboard_arrow_down</i>
                     <ul className="dropdown-menu pull-right">
 
                         <li><a href="#" className=" waves-effect waves-block"><i className="material-icons">input</i>Sign Out</a></li>
