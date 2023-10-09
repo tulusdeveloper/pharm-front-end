@@ -36,7 +36,7 @@ class MainComponent extends React.Component {
 			<Overlay display={this.state.displayOverlay} />
 			<Navbar onBarClick={this.onBarClick} />
 			<Sidebar />
-			<HomeComponent />
+			<>{this.props.page}</>
 			<PageLoader />
 		</React.Fragment>;
 	};
