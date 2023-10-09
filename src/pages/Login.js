@@ -41,6 +41,7 @@ class Login extends React.Component {
         else {
             this.setState({ loginStatus: 3 });
             window.location = Config.homeUrl;
+           
         }
     }
 

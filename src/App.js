@@ -1,17 +1,19 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import MainComponent from './components/MainComponent';
+import { PrivateRoutes } from './utils/PrivateRoutes';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/home" element={<MainComponent />} />
+          <Route element={<Login />}  path="/" />
+          <Route element={<PrivateRoutes />}>
+            <Route element={<MainComponent />} path="/home" exact />
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>
