@@ -12,7 +12,7 @@ class Sidebar extends React.Component {
     this.divref = React.createRef();
   }
 
-  componentWillMount() {
+  componentWillMountMount() {
     document.addEventListener("mousedown", this.handleMouseClick, false)
   }
   componentWillUnmount() {
@@ -21,7 +21,7 @@ class Sidebar extends React.Component {
   }
   handleMouseClick = (event) => {
     console.log("ok")
-    if (event.target == this.divref.current) {
+    if (event.target === this.divref.current) {
       return;
     }
     else {
@@ -30,7 +30,7 @@ class Sidebar extends React.Component {
   }
 
   showLogoutMenu = () => {
-    if (this.state.defaultClass == "btn-group user-helper-dropdown") {
+    if (this.state.defaultClass === "btn-group user-helper-dropdown") {
       this.setState({ defaultClass: "btn-group user-helper-dropdown open" });
     }
     else {

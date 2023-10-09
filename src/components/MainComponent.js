@@ -2,7 +2,7 @@ import React from 'react';
 import Overlay from './Overlay';
 import PageLoader from './PageLoader';
 import Navbar from './Navbar';
-import HomeComponent from './HomeComponent';
+import HomeComponent from '../pages/HomeComponent';
 import Sidebar from './Sidebar';
 import "adminbsb-materialdesign/css/themes/all-themes.css";
 
