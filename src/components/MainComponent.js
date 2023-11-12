@@ -37,6 +37,7 @@ class MainComponent extends React.Component {
 			<Navbar onBarClick={this.onBarClick} />
 			<Sidebar />
 			<>{this.props.page}</>
+			<HomeComponent />
 			<PageLoader />
 		</React.Fragment>;
 	};

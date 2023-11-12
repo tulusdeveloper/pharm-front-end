@@ -14,10 +14,10 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route element={<Login />}  path="/" />
+          <Route element={<Login />} path="/" />
           <Route element={<PrivateRoutesNew />}>
-            <Route element={<HomeComponent />} path="/home" exact />
-            <Route element={<CompanyComponent />} path="/company" exact />
+            <Route element={<MainComponent />}  path="/home" exact />
+            <Route element={<CompanyComponent />}  path="/company" exact />
           </Route>
         </Routes>
       </BrowserRouter>
